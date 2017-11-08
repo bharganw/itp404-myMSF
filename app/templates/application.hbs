@@ -1,0 +1,119 @@
+<div class="page-body">
+	<!-- Page header -->
+	<div id="page-header">
+		<a href="https://www.usc.edu" target="_blank"><img src="/assets/images/usc_primary_logotype_small.png"class="pull-right header-image"></a>	
+	</div>
+
+	<!-- Navigation Bar -->
+	<nav id="nav_bar" class="navbar-fixed-top navbar navbar-default nav-borders nav-second-border navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<!-- Branding Image -->
+				<a class="navbar-brand" href="/"><img src="/assets/images/logo.png" class="brand-image"></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="app-navbar-collapse">
+				<ul class="nav navbar-nav" id="nav-portallinks">
+						<!--<li class="divider-vertical"></li>-->
+					<li>{{#link-to "home"}}Home{{/link-to}}</li>
+					<li>{{#link-to "calendar"}}Calendar{{/link-to}}</li>
+					<li class="dropdown pull-right">
+						<button class="btn btn-primary dropdown-toggle accordion nav-quick-button" type="button" data-toggle="dropdown"><img src="/assets/images/quicklinks-image.png" class="quicklinks-icon" ></button>
+						<ul class="dropdown-menu scrollable-menu">
+							<li><a href="https://blackboard.usc.edu/webapps/bb-auth-provider-shibboleth-bb_bb60/execute/shibbolethLogin?authProviderId=_103_1" target="_new"><img src="/assets/images/chalkboard.png" class="icons"> Blackboard</a></li>
+							<li class="divider"></li>
+							<li><a href="http://mail.google.com/a/usc.edu" target="_new"><img src="/assets/images/gmail.png" class="icons"> Gmail</a></li>
+							<li class="divider"></li>
+							<li><a href="https://shibboleth-usc-csm.symplicity.com/sso/" target="_new"><img src="/assets/images/wallpost.png" class = "icons" > ConnectSC</a></li>
+							<li class="divider"></li>
+							<li><a href="https://my.usc.edu/portal/oasis/webregbridge.php" target="_new"><img src="/assets/images/road-signs.png" class ="icons"> Web Registration</a></li>
+							<li class="divider"></li>
+							<li><a href="https://my.usc.edu/portal/oasis/oasisbridge.php" target="_new"><img src="/assets/images/award.png" class="icons"> Oasis</a></li>
+							<li class="divider"></li>
+							<li><a href="https://my.usc.edu/portal/epay/bridgecn.php" target="_new"><img src="/assets/images/money.png" class = "icons"> USC E-Pay</a></li>
+							<li class="divider"></li>
+							<li><a href="https://my.usc.edu/service/financial-aid/" target="_new"><img src="/assets/images/calculator.png" class = "icons"> Financial Aid</a></li>
+							<li class="divider"></li>
+							<li><a href="https://my.usc.edu/service/library/" target="_new"><img src="/assets/images/libraries.png" class = "icons"> Libraries</a></li>
+							<li class="divider"></li>
+							<li><a href="http://www.usc.edu/bus-affairs/admin_serv/uscard_serv/" target="_new"><img src="/assets/images/usc-card.png" class ="icons"> USCard</a></li>
+							<li class="divider"></li>
+							<li><a href="https://wd5.myworkday.com/usc/login.flex" target="_new"><img src="/assets/images/workspace.png" class ="icons"> Workday</a></li>
+							<li class="divider"></li>
+							<li><a href="http://ois.usc.edu/" target="_new"><img src="/assets/images/earth.png" class ="icons"> Office of International Services</a></li>
+						</ul>
+					</li>
+				</ul>
+							<!-- OLD STYLING FOR BUTTONS -->
+						<!--<li>
+								<button class="accordion" id="displayLinks"><img src="/assets/images/quicklinks-image.png" class="quicklinks-icon" ></button>
+								<!--<ul class="quicklinks" id="displayThis">
+									<li><a href="https://blackboard.usc.edu/webapps/bb-auth-provider-shibboleth-bb_bb60/execute/shibbolethLogin?authProviderId=_103_1" target="_new"><%= image_tag "chalkboard.png", :class => "icons" %>Blackboard</a><hr></li>
+									<li><a href="http://mail.google.com/a/usc.edu" target="_new"><%= image_tag "gmail.png", :class => "icons" %>Gmail</a><hr></li>
+									<li><a href="https://shibboleth-usc-csm.symplicity.com/sso/" target="_new"><%= image_tag "wallpost.png", :class => "icons" %>ConnectSC</a><hr></li>
+			 						<li><a href="https://my.usc.edu/portal/oasis/webregbridge.php" target="_new"><%= image_tag "road-signs.png", :class => "icons" %>Web Registration</a><hr></li>
+			 						<li><a href="https://my.usc.edu/portal/oasis/oasisbridge.php" target="_new"><%= image_tag "award.png", :class => "icons" %>Oasis</a><hr></li>
+									<li><a href="https://my.usc.edu/portal/epay/bridgecn.php" target="_new"><%= image_tag "money.png", :class => "icons" %>USC E-Pay</a><hr></li>
+									<li><a href="https://my.usc.edu/service/financial-aid/" target="_new"><%= image_tag "calculator.png", :class => "icons" %>Financial Aid</a><hr></li>
+									<li><a href="https://my.usc.edu/service/library/" target="_new"><%= image_tag "road-signs.png", :class => "icons" %>Libraries</a><hr></li>
+									<li><a href="http://www.usc.edu/bus-affairs/admin_serv/uscard_serv/" target="_new"><%= image_tag "usc-card.png", :class => "icons" %>USCard</a><hr></li>
+									<li><a href="https://wd5.myworkday.com/usc/login.flex" target="_new"><%= image_tag "workspace.png", :class => "icons" %>Workday</a><hr></li>
+									<li><a href="http://ois.usc.edu/" target="_new"><%= image_tag "earth.png", :class => "icons" %>Office of International Services</a></li>
+						</ul>
+					</li>
+				</ul>-->
+			</div>
+		</div>
+	</nav>
+
+			<!--<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>-->
+
+	<!--<script>
+		$(document).ready(function() {
+			$(".dropdown-toggle").dropdown();
+		});
+	</script>-->
+
+	<div class="page-container">
+		{{outlet}}
+
+		<!-- Page footer -->
+		<div class="row">
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-10">
+				<div id="page-footer" class="well">
+					<div class="row">		
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<h5>USC MS in Finance Office</h5>
+							<p>701 Exposition Boulevard, Suite 231<br>
+							HOH-231, MC-1422<br>
+							University of Southern California<br>
+							Los Angeles, CA 90089-1422<br>
+							</p>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<h5>Help</h5>
+							<p>For additional help, email us at<br>
+								<a style="color:white;" href="mailto:ms.fin@marshall.usc.edu">...@marshall.usc.edu</a>
+							</p>
+						</div>
+						<div class="col-xs-12 col-sm-3 col-md-3">
+							<a href="https://mymarshall.usc.edu/"  target="_blank"><img src="/assets/images/msf_logo_formal.png" class ="pull-right footer-image"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-1">
+			</div>
+		</div>
+	</div>
+</div>

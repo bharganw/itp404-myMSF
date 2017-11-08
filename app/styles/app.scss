@@ -1,0 +1,915 @@
+
+@import "ember-bootstrap/bootstrap";
+
+
+/* ------------- VARIABLES ------------------*/
+/* Fonts */
+$font-headings: Sitka Heading, Georgia;
+$font-text: ASAP, Calibri;
+$font-paragraphs: Helvetica, Calibri;
+
+/* Sizes */
+$page-heading-height: 9vh;
+
+/* Colors */
+$cardinal: rgba(153, 0, 0, 1);
+$dark-grey: rgba(175, 171, 171, 1);
+$very-dark-grey: rgba(125, 125, 125, 1);
+$gold: rgba(255, 217, 102, 1);
+$sunflower: rgba(236, 206, 119, 1);
+$light-grey: rgba(217, 217, 217, 1);
+$translucent-grey: rgba (255, 255, 255, 0.25);
+$email-links-color: rgba (0, 47, 76, 0.80);
+
+/* Navbar variables */
+$navbar-height:12vh; /* height of entire navbar */
+$padded-navbar-height: 10vh; /* almost navbar height for components */
+$screen-height:75vh; /* height of the screen */
+
+
+
+/* Navigation menu items */
+@mixin nav_items {
+	font: {
+		family: $font-text;
+		size: 4vh;
+	}
+	color: black;
+}
+
+/* Panel headings on calendar page */
+@mixin small_headings {
+
+}
+
+/* ------------- USEFUL CLASSES ------------------*/
+.transparent {
+	opacity: 10%;
+}
+
+.vertical-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pull-right {
+	margin-left: 85vw;
+	margin-top: -7vh;
+}
+
+/* Create a gap */
+.margin-sm{
+	height: 3vh;
+}
+
+.margin-top-sm{
+	margin-top: 2vh;
+}
+
+.margin-right-sm{
+	margin-right: 2vw;
+}
+
+.half-screen-height{
+    height: 36vh!important;
+}
+
+.half-screen-height-header-page{
+    height: 31vh!important;
+}
+
+/*Make something take up most of the remaining screen after the navbar */
+.screen-height {
+	height: 75vh!important;
+}
+
+/*Make something take up most of the remaining screen after the 
+	navbar & page header */
+.screen-height-header-page {
+	height: 65vh!important;
+}
+
+.view-cap, .view-container-border {
+	background-color: rgba(255,0,0,1);
+}
+
+/* Add bottom border to your html element. Used in pages to separate headers and text */
+.borders {
+	position: relative;
+	border-bottom: 0.3vh solid black;
+}
+
+.internal-borders {
+	position: relative;
+	border-bottom: 0.3vh solid grey;
+}
+
+.offset-right {
+	margin-left: 2vw;
+}
+
+.pad-left-sm {
+	padding-left: 2vw;
+}
+
+/* Standardize wells on the website */ 
+.well {
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 2.5em !important;
+}
+
+.well-thin {
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 2.5em !important;
+	height: $page-heading-height;
+}
+
+/* Color text cardinal */
+.cardinal {
+	color: $cardinal;
+}
+
+.page-body { 
+	/*background-image: url(background.JPG);*/
+	background: url("../assets/images/background.JPG") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* -----------------TEXT GENERAL ----------------------*/
+.small-caps {
+    font-variant: small-caps;
+}
+
+/* --------------- LINKS ------------------ */
+.email-link {
+	color:rgba (0, 47, 76, 0.80)!important;
+}
+
+/* ------------- TEXT: HEADERS & PARA ------------------*/
+h1 {
+	vertical-align: text-bottom;
+	font-family: $font-headings;
+	padding: 0;
+	font-size: 3em;
+}
+
+h2 {
+	vertical-align: text-bottom;
+	font-family: $font-paragraphs;
+	padding: 0;
+	font-size: 2.5em;
+}
+
+h3 {
+	vertical-align: text-bottom;
+	font-family: $font-headings;
+	padding: 0;
+	font-size: 2em;
+}
+
+h4 {
+	vertical-align: text-bottom;
+	font-family: $font-paragraphs;
+	padding: 0;
+	font-size: 1.25em;
+}
+
+h5 {
+	vertical-align: text-bottom;
+	font-family: $font-headings;
+	padding: 0;
+	font-size: 1em;
+}
+
+h6 {
+	vertical-align: text-bottom;
+	font-family: $font-paragraphs;
+	padding: 0;
+	font-size: 0.75em;
+}
+
+/* ------------- MODAL/POPUP ------------------*/
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	margin-top: 15vh;
+	height: 85vh; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+	margin: auto;
+	display: block;
+	width: 90vw;
+	height: 65vh;
+	overflow: auto;
+	/*max-width: 700px;*/
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+/*#caption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px;
+}*/
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+	from {-webkit-transform:scale(0)} 
+	to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+	from {transform:scale(0)} 
+	to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+	position: absolute;
+	top: 1em;
+	right: 0.6em;
+	color: $gold;
+	font-size: 3em;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* ------------- BUTTONS ------------------*/
+.btn {
+	font-family: $font-text;
+	font-weight: bold;
+	color: $very-dark-grey;
+	/*background-color: $light-grey;*/
+	border-color: $dark-grey;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		outline: none;
+	}
+}
+
+.btn-active {
+	color: white!important;
+	background-color: $dark-grey!important;
+}
+
+.header-height-btn {
+	height: $page-heading-height;
+}
+
+.submit-button {
+	color: white!important;
+}
+
+#back-button {
+	border-radius: 2.5em;
+	width: 100%;
+}
+
+.grey-button:hover {
+	color: white;
+	background-color: $dark-grey;
+}
+
+/* ------------- COLLAPSIBLE ------------------*/
+.panel-cal {
+	margin: 0;
+
+	&:focus {
+		font-weight: bold;
+	}
+
+	&:active {
+		font-weight: bold;
+	}
+
+}
+
+.panel-title-cal {
+	font-family: $font-text;
+	font-weight: 300;
+	font-size: 1.25em;
+	padding: 0.35em;		
+}
+
+.sub-heading {
+	color: black !important;
+	font-size: 2.5em;
+}
+
+/* ------------- COLLAPSIBLE - CONTENT PAGES ------------------*/
+/*.custom-con {
+    .panel-heading: {
+        background-color: blue !important;
+     }
+}*/
+/* ------------- ALL PROFILES ------------------*/
+.all-profiles-well {
+	display: block;
+	width: 12.5em;
+	height: 12.5em;
+
+	.all-profiles-img {
+		/* Set image size on all profiles page to fit well*/	
+		padding: 0.25em 0.25em 0.25em 0.25em;
+		margin: auto;
+		width: 95%;
+		height: auto;
+		max-height: 95%;
+	}
+
+	#flip {
+		text-align: center;
+		vertical-align:middle;
+		background-color: black;
+		color: white;
+		display: none;
+	}
+}
+
+/* ------------ ANNOUNCEMENTS ------------ */
+.announcements-btn {
+	color: white!important;
+	background-color: $cardinal!important;
+	font-weight: normal!important;
+	border-radius: 15px;
+}
+
+.announcement-div {
+	border: 0.1em solid;
+	height: 30vh;
+
+	.topBottom {
+		font-size: 1.5em;
+	}
+
+	h2 {
+		color: $cardinal;
+		position: absolute;
+		bottom: 0;
+	}
+
+}
+
+.announcement-div:nth-child(even) {
+	background-color: $sunflower;
+}
+
+.announcement-div:nth-child(3n+2) {
+	p {
+		position: absolute;
+		bottom: 0;	
+	}
+
+	h2 {
+		top: 0;
+		bottom: auto;
+	}
+}
+
+.popup-btn {
+	background-color: transparent!important;
+	border-color: transparent!important;
+	color: black!important;
+	font-size: 22pt;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.popup-btn:focus {
+	outline: none!important;
+	border: none!important;
+}
+
+.delete-btn:link, .delete-btn:visited {
+    background-color: $cardinal;
+    color: white;
+    padding: 1em;
+    border-radius: 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+.delete-btn:hover, .delete-btn:active {
+	color: $gold;
+}
+
+/* ----------- HAPPY BIRTHDAY ----------- */
+#happyBirthday {
+	height: auto;
+}
+
+.balloons-styling {
+	position: absolute;
+	height: 10vw;
+}
+
+.birthday-image {
+	display: block;
+	width: 15vh;
+	height: auto;
+}
+
+.birthday-spacing {
+	margin: 2.5vw;
+}
+
+.birthday-titles {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+/* ------------- STOCKS --------------- */
+#stock {
+	padding-left: 6vh; 
+}
+
+
+/* ------------- CALENDAR ------------------*/
+.calendar-container {
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+}
+
+/* ------------- FORMS ------------------*/
+.control-label {
+	vertical-align: center;
+	line-height: 1.5em;
+	font: {
+		family: $font-paragraphs;
+		size: 1em;
+	}
+}
+
+.form-control {
+	height: 2.1em;
+	font: {
+		family: $font-paragraphs;
+		size: 1em;
+	}
+}
+
+.big-text-box {
+	height: 7em!important;
+}
+
+.huge-text-box {
+	height: 37vh!important;
+}
+
+.multi-box {
+	width: 100%;
+}
+
+.publish-button {
+	margin-top: 1.5vh;
+	padding: 1em;
+	font-size: 1.15em;
+}
+
+figcaption {
+	display: none;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease-out;  
+	-moz-transition: opacity 0.3s ease-out;  
+	-ms-transition: opacity 0.3s ease-out;  
+	-o-transition: opacity 0.3s ease-out;  
+	transition: opacity 0.3s ease-out; 
+}
+
+/*#bio-question{
+	text-align: right;
+
+	:hover figcaption {
+	display: block;
+	opacity: 1;
+}
+}*/
+
+/* ------------------------------------- THEME ------------------------------------------------------*/
+
+/* ------------- PAGE HEADER ------------------*/
+#page-header {
+	/*div holding the USC logo.*/
+
+	/*Fixed to top left of page*/
+	position: fixed; 
+	z-index: 100;
+	top:0;
+	left:0;
+
+	/*Dimensions*/
+	width: 100vw;
+	height: 7vh;
+	background-color: $cardinal;
+
+	/*So that it doesn't keep shrinking*/
+	min-height: 1.7em!important;
+}
+
+.header-image {
+	/*Usc primary logotype*/
+	height: 5vh;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	margin-right: 2vw;
+	min-height: 1.5em!important;
+}
+
+/* ------------- PAGE ------------------*/
+.page_container {
+	/*top: 17vh;*/
+	/*Contains the content which stays below the navbar and scrolls*/
+	margin-top: 17vh;
+	padding-top: 5vh;
+}
+
+.page-container {
+	margin-top: 15vh;
+}
+
+.page-header-size {
+	height: $page-heading-height;
+}
+
+/* ------------- PAGE FOOTER ------------------*/
+#page-footer {
+	/*div holding the footer*/
+	margin-top: 3vh;
+	background-color: rgba(153, 0, 0, 0.75);
+	border: none;
+
+	h5 {
+		font-size: 3vh;
+		color: rgba(236, 206, 119, 1);
+	}
+
+	p {
+		font-size: 2vh;
+		font-family: $font-paragraphs;
+		color: white;
+	}
+}
+
+.footer-image {
+	/*msf logo*/
+	height: 10vh;
+	margin-top: auto;
+	margin-bottom: 1vh;
+	margin-right: 2vw;
+	min-height: 1.5em!important;
+}
+
+/* ------------- NAVBAR ------------------*/
+.navbar {
+	/* The div containing everything */
+	z-index: 100;
+	width: 100vw;
+	top: 7vh;
+	left:0;
+	height: $navbar-height;
+	vertical-align: center;
+
+	/* Vertical dividers on the navbar */ 
+	/*.divider-vertical {
+		height: 10vh;
+		min-height: 3em;
+		margin-top: 1vh;
+		border-right: 1px solid grey;
+		border-left: 1px solid grey;
+		border-right-color: #222222;
+		border-left-color: #111111;
+	}*/
+}
+
+.navbar-brand {
+	/* The div containing the brand. It is sized responsive to image size */
+	position: absolute;
+	left:0;
+	margin-top: 1vh;
+	height: $padded-navbar-height;
+	border-right: 3px solid black;
+	padding-left: 5vw;
+	padding-top: 2.5vh;
+	padding-right: 3vw;
+
+	min-height: 40px;
+
+	.brand-image {
+		height: 6vh;
+		min-height: 25px;
+		min-width: 60px;
+	}
+}
+
+/* The nav_items besides the brand */
+.nav {
+	line-height: 10vh;
+	padding-top: 1.5vh;
+	margin-top: 1vh;
+
+	font: {
+		family: $font-text;
+		size: 1.4em;
+	}
+}
+
+/* The nav_items which are the portal links */
+#nav-portallinks {
+	position: absolute;
+	width: 60vw;
+	left:20vw;
+
+	.nav-quick-button {
+		margin-top: -3.5vh;
+	}
+
+	li a {
+		padding-left: 3.25vw;
+		color: black;
+
+		&:hover {
+			color: $very-dark-grey;
+		}
+	}
+
+	li ul li a{
+		background-color: $cardinal;
+		color: $gold;
+	}
+
+	.quicklinks-icon {
+		height: 7vh;
+	}
+
+	.scrollable-menu {
+		max-height: $screen-height;
+		overflow: auto;
+	}
+
+	.icons {
+		height: 4vh;
+	}
+}
+
+/* The nav_items which are the quick links */
+/*#nav-quicklinks {
+	position: absolute;
+	width: 20vw;
+	left:80vw;
+
+	#nav-quick-button {
+		margin-top: -3.5vh;
+	}
+
+	.quicklinks-icon {
+		height: 7vh;
+	}
+
+}*/
+
+
+/*.navbar-nav li a {
+	line-height: 6vh;
+	margin-top: 1vh;
+	padding-left: 3vw!important;
+	padding-right: 3vw!important;
+
+	color: $gold;
+
+	font: {
+		family: $font-text;
+		size: 1.5vw;
+	}
+	
+}*/
+
+/* The red lines at the bottom of the navbar */
+.nav-borders {
+	border-bottom: 0.75vh solid $cardinal;
+}
+
+.nav-second-border {
+	box-shadow:
+		0 0.25vh 0 0.2vh hsl(0, 0%, 95%),
+		0 0.35vh 0 0.3vh $cardinal,
+		0 0.4vh 0 0.35vh hsl(0, 0%, 33%);
+}
+
+
+/* ------------- QUICKLINKS ------------------*/
+
+.navbar-nav li ul {
+	background-color: $cardinal;
+	color: $gold;	
+}
+
+.dropdown-menu {
+/*	li a {
+		padding-top: 0.5vw;
+		padding-bottom: 0.5vw;
+	}*/
+	.divider {
+/*		margin-top: 0;
+		margin-bottom: 0;
+*/		background-color: $gold;
+	}
+}
+
+button.accordion {
+	background-color: transparent;
+	border: none;
+}
+
+button.accordion:focus {
+	outline:0;
+	background-color: transparent;
+}
+
+button.accordion:hover {
+	background-color: transparent;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.scrollable-bio {
+	overflow: auto;
+	height: 70vh;
+}
+
+/**/
+@media (max-width: 1200px) {
+	.navbar-collapse .nav > .divider-vertical {
+		display: none;
+	}
+	#nav-portallinks {
+		li a {
+			color: white;
+		}
+		li a:hover {
+			color: black;
+		}
+		.divider {
+			width: 25vw;
+			margin-left: 0;
+		}
+		font: {
+			family: $font-text;
+			size: 2vw;
+		}
+		max-height: 85vh;
+		overflow: auto;
+		background-color: $cardinal;
+		width: 25vw;
+		margin-left: 50vw;
+	}
+
+/*	.navbar-nav li a {
+		background-color: $cardinal;
+		padding: 0;
+		color: white!important;
+		width: 25vw;
+		margin-left: 55vw;
+		margin-top: 0;
+		margin-bottom: 0;
+		font: {
+			family: $font-text;
+			size: 2vw;
+		}
+	}*/
+/*	.navbar-nav li a:hover {
+		color: black!important;
+	}*/
+/*	button.accordion {
+		background-color: $cardinal!important;
+		width: 25vw;
+		margin-left: 55vw;
+		padding: 1em;
+		margin-top: 0em!important;
+		margin-bottom: 0em!important;
+	}*/
+	.navbar-nav .divider {
+		width: 25vw;
+		margin-left: 55vw;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.navbar-nav li ul {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+
+	/* How to collapse the navbar */
+/*	.navbar-left,.navbar-right {
+		float: none;
+	}
+	.navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+	.navbar-nav {
+		float: none!important;
+		margin-top: 7.5px;
+	}*/
+	.navbar-header {
+		float: none;
+	}
+	.navbar-toggle {
+		display: block;
+	}
+	.navbar-collapse {
+		border-top: 1px solid transparent;
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	.navbar-collapse.collapse {
+		display: none!important;
+	}
+	.navbar-nav {
+		float: none!important;
+		margin: 7.5px -15px;
+	}
+	.navbar-nav>li {
+		float: none;
+	}
+	.navbar-nav>li>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.navbar-text {
+		float: none;
+		margin: 15px 0;
+	}
+	.navbar-collapse.collapse.in { 
+		display: block!important;
+	}
+	.collapsing {
+		overflow: hidden!important;
+	}
+
+	#stock {
+		padding-left: 1vh;
+	}
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+	.modal-content {
+		width: 100%;
+	}
+
+	button.btn-tr-back{
+		margin-bottom: 20px;
+	}
+
+	.header-height-btn {
+		height: 5vh;
+	}
+}
+
