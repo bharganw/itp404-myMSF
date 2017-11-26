@@ -1,0 +1,17 @@
+{{#each model as |announcement|}}
+	<h3>{{announcement.title}}</h3>
+	<form onsubmit={{action "updateAnnouncement" announcement}}>
+		{{input type="text" value=announcement.title}}
+		<button type="submit">Update Announcement</button>
+	</form>
+	<button onclick={{action "deleteAnnouncement" announcement}}>Delete Announcement</button>
+{{else}}
+	<p> No announcements</p><br>
+{{/each}}
+
+<br><br><br><br>
+
+<form onsubmit={{action "createAnnouncement"}}>
+	Title: {{input type="text" value=title}}
+	<button type="submit">Create Announcement</button>
+</form>

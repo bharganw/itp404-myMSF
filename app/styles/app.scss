@@ -1,6 +1,24 @@
 
 @import "ember-bootstrap/bootstrap";
 
+/* ------------------ NEW ----------------- */
+$background-height: 82.4vh;
+
+.page-new {
+	padding-top: 9vh;
+	padding-left: 4vw;
+}
+
+.page-body { 
+	/*background-image: url(background.JPG);*/
+	background: url("../assets/images/background.JPG") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: $background-height;
+}
+
 
 /* ------------- VARIABLES ------------------*/
 /* Fonts */
@@ -25,7 +43,6 @@ $email-links-color: rgba (0, 47, 76, 0.80);
 $navbar-height:12vh; /* height of entire navbar */
 $padded-navbar-height: 10vh; /* almost navbar height for components */
 $screen-height:75vh; /* height of the screen */
-
 
 
 /* Navigation menu items */
@@ -128,15 +145,6 @@ $screen-height:75vh; /* height of the screen */
 /* Color text cardinal */
 .cardinal {
 	color: $cardinal;
-}
-
-.page-body { 
-	/*background-image: url(background.JPG);*/
-	background: url("../assets/images/background.JPG") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
 }
 
 /* -----------------TEXT GENERAL ----------------------*/
