@@ -25,5 +25,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  //app.import('vendor/jquery.min.js');
+  //app.import('vendor/moment.min.js');
+  //app.import('vendor/jquery.min.js');
+  //app.import('vendor/jquery-ui.min.js');
+  //app.import('vendor/gcal.js');
+  //app.import('vendor/fullcalendar.js');
+  //app.import('vendor/fullcalendar.min.js');
+
   return app.toTree();
 };

@@ -1,17 +1,29 @@
-{{#each model as |announcement|}}
-	<h3>{{announcement.title}}</h3>
-	<form onsubmit={{action "updateAnnouncement" announcement}}>
-		{{input type="text" value=announcement.title}}
-		<button type="submit">Update Announcement</button>
-	</form>
-	<button onclick={{action "deleteAnnouncement" announcement}}>Delete Announcement</button>
-{{else}}
-	<p> No announcements</p><br>
-{{/each}}
+<div class="row">
+	<div class="col-xs-12">
+		<div class="collage-boxes col-xs-12 col-sm-6" >
+			<div class="transc-box">
+				<form onsubmit={{action "createAnnouncement"}}>
+					<p>Title:</p> {{input type="text" value=title}}
+					<p>Body: </p> {{input type="text" value=body}}
+					<div class="input-group date" data-provide="datepicker">
+					    <input type="text" class="form-control">
+					    <div class="input-group-addon">
+					        <span class="glyphicon glyphicon-th"></span>
+					    </div>
+					</div>
+					<button class="btn grey-button" type="submit">Create Announcement</button>
+				</form>
+			</div>
+		</div>
 
-<br><br><br><br>
-
-<form onsubmit={{action "createAnnouncement"}}>
-	Title: {{input type="text" value=title}}
-	<button type="submit">Create Announcement</button>
-</form>
+		{{#each model as |announcement|}}
+			{{single-announcement announcement=announcement}}
+		{{else}}
+			<div class="collage-boxes col-xs-12 col-sm-6" >
+				<div class="transc-box vertical-align-center">
+					<h3 class="cardinal bold">No Announcements</h3>
+				</div>
+			</div>	
+		{{/each}}
+	</div>
+</div>

@@ -1,12 +1,47 @@
 
 @import "ember-bootstrap/bootstrap";
+@import "node_modules/ember-modal-dialog/app/styles/ember-modal-dialog/ember-modal-structure";
+@import "node_modules/ember-modal-dialog/app/styles/ember-modal-dialog/ember-modal-appearance";
+@import 'node_modules/ember-basic-dropdown/app/styles/ember-basic-dropdown.scss';
 
 /* ------------------ NEW ----------------- */
 $background-height: 82.4vh;
 
+.quicklinks-box {
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 1em !important;
+	height: 8.5vh;
+	padding-top: 1.7vh;
+
+    .box-icon {
+	    /*max-width: 85%;*/
+	    height: 5vh;
+	}
+
+	.text {
+		padding-left: 20%;
+	}
+}
+
+.quicklinks-holder {
+	padding-bottom: 2vh;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
+.italics {
+	font-style: italic;
+}
+
+.vertical-align-center {
+	vertical-align: middle !important;
+	padding-top: 0vh !important;
+}
+
 .page-new {
 	padding-top: 9vh;
-	padding-left: 4vw;
 }
 
 .page-body { 
@@ -17,6 +52,35 @@ $background-height: 82.4vh;
 	-o-background-size: cover;
 	background-size: cover;
 	min-height: $background-height;
+}
+
+.transc-box {
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 1em !important;
+	height: 37vh;
+	text-align: center;
+	display: table-cell;
+    vertical-align: top;
+    padding: 5%;
+
+    /* Not used */
+	.box-icon {
+		margin-top: 3vh;
+	    max-width: 85%;
+	    max-height: 85%;
+	}
+
+	/* Not used */
+	.ind-icon {
+		margin-top: 20vh;
+	    max-width: 85%;
+	    max-height: 85%;
+	}
+}
+
+.collage-boxes {
+	display: table;
+	padding-bottom: 2vh;
 }
 
 

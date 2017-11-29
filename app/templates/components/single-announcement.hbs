@@ -1,0 +1,14 @@
+<div class="collage-boxes col-xs-12 col-sm-6">
+	<div class="transc-box" {{action "toggleModal"}}>
+		<h4 class="cardinal bold" style="text-align: left">{{announcement.title}}</h4>
+		<p class="divider"></p>
+		<p>{{announcement.body}}</p>
+
+		<form>
+			{{input type="text" value=announcement.title}}
+			<button class="btn grey-button" onclick={{action "updateAnnouncement" announcement}}>Update Announcement</button>
+		</form>
+		
+		<button class="btn grey-button delete-btn" onclick={{action "deleteAnnouncement" announcement}}>Delete Announcement</button>
+	</div>
+</div>
