@@ -5,12 +5,7 @@
 				<form onsubmit={{action "createAnnouncement"}}>
 					<p>Title:</p> {{input type="text" value=title}}
 					<p>Body: </p> {{input type="text" value=body}}
-					<div class="input-group date" data-provide="datepicker">
-					    <input type="text" class="form-control">
-					    <div class="input-group-addon">
-					        <span class="glyphicon glyphicon-th"></span>
-					    </div>
-					</div>
+					<p>Created: </p> {{date-picker}}
 					<button class="btn grey-button" type="submit">Create Announcement</button>
 				</form>
 			</div>

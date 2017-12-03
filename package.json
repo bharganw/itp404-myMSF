@@ -24,6 +24,7 @@
     "ember-cli": "~2.16.1",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
+    "ember-cli-bootstrap-datepicker": "^0.5.6",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-document-title": "^0.3.3",
     "ember-cli-eslint": "^4.0.0",
@@ -35,6 +36,7 @@
     "ember-cli-sass-variables": "^1.0.1",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-surge": "^1.1.21",
     "ember-cli-uglify": "^2.0.0",
     "ember-data": "~2.16.2",
     "ember-export-application-global": "^2.0.0",
@@ -53,6 +55,10 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
+    "cors": "^2.8.4",
+    "ember-basic-dropdown": "^0.34.0",
+    "ember-cli-bootstrap-datepicker": "^0.5.6",
+    "ember-fullcalendar": "^1.8.0",
     "moment": "^2.19.2"
   }
 }

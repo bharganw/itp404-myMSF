@@ -15,7 +15,9 @@ export default Controller.extend({
 				title: this.get('title'),
 				body: this.get('body')
 			});//just creates record in memory but does not save it
-			announcement.save();//Look at adapter, use those values and do a save request i.e. POST AJAX call
+			announcement.save().then(function() {
+		    	toastr.success('Announcement was updated');
+		    });//Look at adapter, use those values and do a save request i.e. POST AJAX call
 		}/*,
 		updateAnnouncement(announcementToUpdate, e) {
 			e.preventDefault(); //prevent page from refreshing
