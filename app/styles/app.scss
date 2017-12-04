@@ -4,6 +4,26 @@
 @import "node_modules/ember-modal-dialog/app/styles/ember-modal-dialog/ember-modal-appearance";
 @import 'node_modules/ember-basic-dropdown/app/styles/ember-basic-dropdown.scss';
 
+/* ------------- VARIABLES ------------------*/
+/* Fonts */
+$font-headings: Sitka Heading, Georgia;
+$font-text: ASAP, Calibri;
+$font-paragraphs: Helvetica, Calibri;
+
+/* Sizes */
+$page-heading-height: 9vh;
+
+/* Colors */
+$cardinal: rgba(153, 0, 0, 1);
+$dark-grey: rgba(175, 171, 171, 1);
+$very-dark-grey: rgba(125, 125, 125, 1);
+$gold: rgba(255, 217, 102, 1);
+$sunflower: rgba(236, 206, 119, 1);
+$light-grey: rgba(217, 217, 217, 1);
+$translucent-grey: rgba (255, 255, 255, 0.25);
+$email-links-color: rgba (0, 47, 76, 0.80);
+
+
 /* ------------------ NEW ----------------- */
 $background-height: 82.4vh;
 
@@ -54,14 +74,38 @@ $background-height: 82.4vh;
 	min-height: $background-height;
 }
 
+.transc-box-empty {
+	background: rgba(255, 255, 255, 0.75);
+	border-radius: 1em !important;
+	height: 30vh;
+	width: 45vw!important;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 5%;
+}
+
 .transc-box {
 	background: rgba(255, 255, 255, 0.75);
 	border-radius: 1em !important;
-	height: 37vh;
+	height: 30vh;
+	width: 45vw!important;
 	text-align: center;
-	display: table-cell;
-	vertical-align: top;
-	padding: 5%;
+	display: inline-block;
+	vertical-align: middle;
+	padding-top: 7%;
+	padding-left: 5%;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+
+	.text {
+		text-overflow: ellipsis;
+		display: block;
+		max-width: 43vw!important;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 
 	/* Not used */
 	.box-icon {
@@ -81,6 +125,21 @@ $background-height: 82.4vh;
 .collage-boxes {
 	display: table;
 	padding-bottom: 2vh;
+}
+
+.fa {
+	font-size: 7vh!important;
+	color: $cardinal;
+}
+
+.input-box-title {
+	width: 82vw;
+	height: 28px;
+}
+
+.input-box-body {
+	width: 82vw;
+	height: 38vh;
 }
 
 /* ------------ CSS Spinner ----------------*/
@@ -129,43 +188,24 @@ $background-height: 82.4vh;
 }
 @-webkit-keyframes load3 {
   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
   }
 }
 @keyframes load3 {
   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
   }
 }
-
-/* ------------- VARIABLES ------------------*/
-/* Fonts */
-$font-headings: Sitka Heading, Georgia;
-$font-text: ASAP, Calibri;
-$font-paragraphs: Helvetica, Calibri;
-
-/* Sizes */
-$page-heading-height: 9vh;
-
-/* Colors */
-$cardinal: rgba(153, 0, 0, 1);
-$dark-grey: rgba(175, 171, 171, 1);
-$very-dark-grey: rgba(125, 125, 125, 1);
-$gold: rgba(255, 217, 102, 1);
-$sunflower: rgba(236, 206, 119, 1);
-$light-grey: rgba(217, 217, 217, 1);
-$translucent-grey: rgba (255, 255, 255, 0.25);
-$email-links-color: rgba (0, 47, 76, 0.80);
 
 /* Navbar variables */
 $navbar-height:12vh; /* height of entire navbar */
@@ -330,31 +370,43 @@ h6 {
 
 /* ------------- MODAL/POPUP ------------------*/
 
-/* The Modal (background) */
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	margin-top: 15vh;
-	height: 85vh; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+body.centered-modal-showing {
+  overflow: hidden;
 }
 
-/* Modal Content (Image) */
-.modal-content {
-	margin: auto;
-	display: block;
-	width: 90vw;
-	height: 65vh;
-	overflow: auto;
-	/*max-width: 700px;*/
+.centered-scrolling-wrapper {
+  width: 100vw;
+  height: $background-height;
+  position: fixed;
+  top: 17.6vh;
+  left: 0;
+  overflow-y: scroll;
+  z-index: 100;
 }
+
+.centered-scrolling-overlay {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  padding: 1em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* basic modal style (an example, this is not necessary for the centering) */
+.centered-scrolling-container {
+  position: relative;
+  background-color: white;
+  width: 90vw;
+  height: 70vh;
+  padding: 3em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 25px 4px rgba(0,0,0,0.30);
+}
+
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 /*#caption {
@@ -369,12 +421,12 @@ h6 {
 }*/
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption { 
+/*.modal-content, #caption { 
 	-webkit-animation-name: zoom;
 	-webkit-animation-duration: 0.6s;
 	animation-name: zoom;
 	animation-duration: 0.6s;
-}
+}*/
 
 @-webkit-keyframes zoom {
 	from {-webkit-transform:scale(0)} 

@@ -18,4 +18,6 @@ The AJAX request component will be fulfilled via the announcements feature where
 -- PUT: url/announcements/{id}. Editing an existing announcement with id={id}
 -- DELETE: url/announcements/{id}. Deleting an announcement with id={id}
 
+THE AJAX calls have been replaced by ember data calls
+
 I will be integrating the calendar using the Google calendar API. I am unsure about the testing at the moment.

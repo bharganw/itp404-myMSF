@@ -1,13 +1,8 @@
 <div class="row">
 	<div class="col-xs-12">
 		<div class="collage-boxes col-xs-12 col-sm-6" >
-			<div class="transc-box">
-				<form onsubmit={{action "createAnnouncement"}}>
-					<p>Title:</p> {{input type="text" value=title}}
-					<p>Body: </p> {{input type="text" value=body}}
-					<p>Created: </p> {{date-picker}}
-					<button class="btn grey-button" type="submit">Create Announcement</button>
-				</form>
+			<div class="transc-box-empty" {{action "toggleCenteredScrolling"}}>
+				<i class="fa fa-plus" aria-hidden="true"></i>
 			</div>
 		</div>
 
@@ -15,10 +10,42 @@
 			{{single-announcement announcement=announcement}}
 		{{else}}
 			<div class="collage-boxes col-xs-12 col-sm-6" >
-				<div class="transc-box vertical-align-center">
+				<div class="transc-box-empty vertical-align-center">
 					<h3 class="cardinal bold">No Announcements</h3>
 				</div>
 			</div>	
 		{{/each}}
 	</div>
 </div>
+
+{{#if isShowingCreatedModal}}
+	{{#modal-dialog
+		onClose='toggleCenteredScrolling'
+		translucentOverlay=true
+		targetAttachment='none'
+		containerClass='centered-scrolling-container'
+		overlayClass='centered-scrolling-overlay'
+		wrapperClass='centered-scrolling-wrapper'
+	}}
+		<form >
+			<div class="row">
+				<h4 class="cardinal bold">Title:</h4> {{input type="text" value=title class="input-box-title"}}
+			</div>
+			<div class="row">
+				<h4 class="cardinal bold">Body:</h4> {{textarea value=body class="input-box-body"}}
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div style="text-align: center">
+						<button class="btn grey-button" onclick={{action "createAnnouncement"}}>Create Announcement</button>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div style="text-align: center">
+						<button class="btn grey-button" {{action 'toggleCenteredScrolling'}}>Close</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	{{/modal-dialog}}
+{{/if}}

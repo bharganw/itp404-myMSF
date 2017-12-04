@@ -1,24 +1,44 @@
 import Component from '@ember/component';
+import Ember from 'ember';
+//import toastr;
 
 export default Component.extend({
 	isShowingModal: false,
+	isStarred: Ember.computed('announcements', 'announcement.important', function() {
+		return(this.get('announcement.important'));
+	}),
 	actions: {	
+		/*eslint-disable */
 		updateAnnouncement(announcementToUpdate, e) {
-			e.preventDefault(); //prevent page from refreshing
+			// Update announcement
+			e.preventDefault(); 
 			announcementToUpdate.save().then(function() {
-		    	toastr.success('Announcement was updated');
-		    });//Ember knows that we are updating an existing property i.e. PUT AJAX call to api/posts/:id
+				// eslint-disable-next-line no-use-before-define
+				toastr.success('Announcement was updated');
+			});
 		},
-		deleteAnnouncement(announcement, e) {
+		deleteAnnouncement(announcement) {
+			// Delete Announcement
 			announcement.destroyRecord().then(function() {
-		    	toastr.success('Announcement was updated');
-		    }); //Delete AJAX call behind the scenes
-			//The error in the console is because loopback deveates a little from RESTful.. 
-			//It  returns the length instead of no argument
-			//toastr.error('Something went wrong. Please try again.');
+				// eslint-disable-next-line no-use-before-define
+				toastr.success('Announcement was deleted');
+			});
 		},
-		toggleModal: function() {
-        	this.toggleProperty('isShowingModal');
-    	}
+		toggleCenteredScrolling() {
+			this.toggleProperty('isShowingModal');
+		},
+		star(announcement, newIsStarredValue) {
+			this.set('isStarred', newIsStarredValue);
+			let event = !this.get('announcement.important');
+			this.set('announcement.important', event);
+			announcement.save().then(function() {
+				if(event) {
+					toastr.success('Announcement was marked as important');
+				} else {
+					toastr.success('Announcement was unstarred');
+				}
+			});
+		}
+		/*eslint-enable */
 	}
 });
