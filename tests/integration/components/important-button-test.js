@@ -5,20 +5,21 @@ moduleForComponent('important-button', 'Integration | Component | important butt
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{important-button}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
+test('it renders full star when starred is true', function (assert) {
+  this.set('isStarred', true);
+  this.set('star', function() {});
   this.render(hbs`
-    {{#important-button}}
-      template block text
-    {{/important-button}}
+    {{important-button starred=isStarred}}
   `);
+  assert.equal(this.$('fa-star-o').length, 0);
+});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+
+test('it renders empty star when starred is false', function (assert) {
+  this.set('isStarred', false);
+  this.set('star', function() {});
+  this.render(hbs`
+    {{important-button starred=isStarred}}
+  `);
+  assert.equal(this.$('fa-star').length, 0);
 });

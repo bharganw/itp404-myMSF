@@ -5,20 +5,16 @@ moduleForComponent('single-announcement', 'Integration | Component | single anno
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{single-announcement}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
+test('it renders announcement', function (assert) {
+  let announcement = {
+        title: 'Hi',
+        body: 'Body',
+        important: false
+      };
+  this.set('announcement', announcement);
   this.render(hbs`
-    {{#single-announcement}}
-      template block text
-    {{/single-announcement}}
+    {{single-announcement announcement=announcement}}
   `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  
+  assert.equal(this.$().text().trim().substring(0, 2), 'Hi');
 });

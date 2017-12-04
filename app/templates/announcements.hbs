@@ -7,7 +7,7 @@
 		</div>
 
 		{{#each model as |announcement|}}
-			{{single-announcement announcement=announcement}}
+			{{single-announcement announcement=announcement id="single"}}
 		{{else}}
 			<div class="collage-boxes col-xs-12 col-sm-6" >
 				<div class="transc-box-empty vertical-align-center">
@@ -19,7 +19,7 @@
 </div>
 
 {{#if isShowingCreatedModal}}
-	{{#modal-dialog
+	{{#modal-dialog id="modal"
 		onClose='toggleCenteredScrolling'
 		translucentOverlay=true
 		targetAttachment='none'
